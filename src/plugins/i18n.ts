@@ -7,10 +7,16 @@ export default defineNuxtPlugin(({ vueApp }) => {
     locale: 'ja',
     messages: {
       en: {
-        hello: 'Hello, {name}!'
+        hello: 'Hello, {name}!',
+        language: 'languages',
+        en: 'english',
+        ja: 'japanese'
       },
       ja: {
-        hello: 'こんにちは'
+        hello: 'こんにちは',
+        language: '言語',
+        en: '英語',
+        ja: '日本語'
       }
     }
   })
