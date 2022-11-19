@@ -1,8 +1,14 @@
 <template>
     <ProgrammingLangBtn></ProgrammingLangBtn>
-    <button v-on:click="getRepository('js')">叩く</button>
+    <button>叩く</button>
 </template>
 
 <script setup lang="ts">
-    import { getRepository } from '../scripts/apiController'
+    import { getRepositoryByLang, getRepositoryByUpdate } from '../scripts/apiController'
+
+    // const random_repos =  getRepositoryByUpdate()
+    // console.log(random_repos.value)
+
+    const lang_repo = getRepositoryByLang('js')
+    console.log(lang_repo.value.items)
 </script>
