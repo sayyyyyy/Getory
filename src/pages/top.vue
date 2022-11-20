@@ -3,19 +3,20 @@
     <!-- <ul>
         <li v-for="programming_language in programming_languages">{{programming_language.lang}}</li>
     </ul> -->
+    <button>{{ $t('random') }}</button>
+    <Repository_component ref="childRef" v-for="repository_data in repositories_data" :repository_data="repository_data"></Repository_component>
 </template>
 
 <script setup lang="ts">
-    import { getRepositoryByLang, getRepositoryByUpdate } from '../scripts/apiController'
+    import Repository_component from '~~/components/repository_component.vue';
+import { getRepositoryByRandom } from '../scripts/apiController'
 
-
-    // const random_repos =  getRepositoryByUpdate()
-    // console.log(random_repos.value)
     const programming_languages = [
         {lang: 'HTML', img: '../assets/img/HTML.png'},
         {lang: 'TypeScript', img: '../assets/img/HTML.png'}
     ]
     const childRef = ref()
-    // const lang_repo = getRepositoryByLang('js')
-    // console.log(lang_repo.value.items)
+
+    const repositories_data = getRepositoryByRandom()
+
 </script>

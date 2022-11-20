@@ -10,13 +10,15 @@ export default defineNuxtPlugin(({ vueApp }) => {
         hello: 'Hello, {name}!',
         language: 'languages',
         en: 'english',
-        ja: 'japanese'
+        ja: 'japanese',
+        random: 'Random'
       },
       ja: {
         hello: 'こんにちは',
         language: '言語',
         en: '英語',
-        ja: '日本語'
+        ja: '日本語',
+        random: 'ランダム'
       }
     }
   })
