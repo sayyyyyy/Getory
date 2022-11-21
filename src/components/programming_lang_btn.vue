@@ -1,15 +1,14 @@
 <template>
-    <div class="programming-lang-btn-components" v-on:click="clickedProgrammingLangBtn(lang_data.lang)">
-        <img :src="generateImgPath(lang_data.img)">
+    <div class="programming-lang-btn-components border-2 border-black w-40 h-40" v-on:click="clickedProgrammingLangBtn(lang_data.lang)">
+        <img class="w-10 h-10" :src="generateImgPath(lang_data.img)">
         <p>{{lang_data.lang}}</p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { getRepositoryByLang } from '~~/scripts/apiController';
-const props_data = defineProps(['lang_data'])
+defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
-const { state } = repositoryStore
 
 const clickedProgrammingLangBtn = (lang: string) => {
     const repo_lists = getRepositoryByLang(lang)

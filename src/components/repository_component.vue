@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 const repo = defineProps(['repository_data'])
-console.log(repo)
+// console.log(repo).
 
 const transitionGitHub = (url: string) => {
     window.location.href = url
