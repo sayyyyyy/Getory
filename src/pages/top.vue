@@ -17,22 +17,21 @@ import Repository_component from '~~/components/repository_component.vue';
 import { getRepositoryByRandom } from '../scripts/apiController'
 
 const programming_languages = [
-    {lang: 'HTML', img: 'HTML.png'},
-    {lang: 'TypeScript', img: 'TypeScript.png'},
-    {lang: 'C++',img: 'C++.png'},
-    {lang: 'CSS',img: 'CSS.png'},
-    {lang: 'D',img: 'D.png'},
-    {lang: 'Dart',img: 'Dart.png'},
-    {lang: 'Go',img: 'Go.png'},
-    {lang: 'JavaScript',img: 'JavaScript.png'},
-    {lang: 'Kotlin',img: 'Kotlin.png'},
-    {lang: 'PHP',img: 'PHP.png'},
-    {lang: 'Python',img: 'Python.png'},
-    {lang: 'Ruby',img: 'Ruby.png'},
-    {lang: 'Rust',img: 'Rust.png'},
-    {lang: 'Vue',img: 'Vue.png'},
-    {lang: 'React',img: 'React.svg'},
-    {lang: 'Swift',img: 'Swift.svg'},
+    {lang: 'HTML', img: 'HTML.png', search_name: 'html'},
+    {lang: 'TypeScript', img: 'TypeScript.png' , search_name: 'ts'},
+    {lang: 'C++',img: 'C++.png', search_name: 'c%2B%2B'},
+    {lang: 'CSS',img: 'CSS.png', search_name: 'css'},
+    {lang: 'D',img: 'D.png', search_name: 'd'},
+    {lang: 'Dart',img: 'Dart.png', search_name: 'dart'},
+    {lang: 'Go',img: 'Go.png', search_name: 'go'},
+    {lang: 'JavaScript',img: 'JavaScript.png', search_name: 'js'},
+    {lang: 'Kotlin',img: 'Kotlin.png', search_name: 'kotlin'},
+    {lang: 'PHP',img: 'PHP.png', search_name: 'php'},
+    {lang: 'Python',img: 'Python.png', search_name: 'python'},
+    {lang: 'Ruby',img: 'Ruby.png', search_name: 'ruby'},
+    {lang: 'Rust',img: 'Rust.png', search_name: 'rust'},
+    {lang: 'Vue',img: 'Vue.png', search_name: 'vue'},
+    {lang: 'Swift',img: 'Swift.svg', search_name: 'swift'},
 ]
 const childRef = ref()
 
