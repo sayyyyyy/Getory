@@ -12,8 +12,8 @@
 import { getRepositoryByRandom } from '../scripts/apiController'
 
     const programming_languages = [
-        {lang: 'HTML', img: '../assets/img/HTML.png'},
-        {lang: 'TypeScript', img: '../assets/img/HTML.png'}
+        {lang: 'HTML', img: 'HTML.png'},
+        {lang: 'TypeScript', img: 'TypeScript.png'}
     ]
     const childRef = ref()
 

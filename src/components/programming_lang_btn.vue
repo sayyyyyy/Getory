@@ -1,6 +1,6 @@
 <template>
     <div class="programming-lang-btn-components" v-on:click="clickedProgrammingLangBtn(lang_data.lang)">
-        <img :src="lang_data.img">
+        <img :src="generateImgPath(lang_data.img)">
         <p>{{lang_data.lang}}</p>
     </div>
 </template>
@@ -15,5 +15,10 @@ const clickedProgrammingLangBtn = (lang: string) => {
     navigateTo({path: '/search'})
 }
 
+const generateImgPath = (fileName: string): string => {
+    const new_url = new URL(`../assets/img/${fileName}`, import.meta.url).href
+    console.log(new_url)
+    return new_url
+}
 
 </script>
