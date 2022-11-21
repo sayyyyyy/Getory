@@ -6,7 +6,7 @@
         
         <button>{{ $t('random') }}</button>
         <div class="grid grid-cols-3">
-            <Repository_component ref="childRef" v-for="repository_data in repositories_data" :repository_data="repository_data"></Repository_component>
+            <Repository_component ref="childRef" v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
         </div>
         
     </div>
@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 import Repository_component from '~~/components/repository_component.vue';
-import { getRepositoryByRandom } from '../scripts/apiController'
 
 const programming_languages = [
     {lang: 'HTML', img: 'HTML.png', search_name: 'html'},
@@ -37,8 +36,16 @@ const childRef = ref()
 
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
+const API_URL = 'https://api.github.com/'
 
-const repositories_data = ref(getRepositoryByRandom())
 
+const getRandomRepo = () => {
+    useFetch(API_URL + 'repositories')
+    .then( (response) => {
+        repositoryStore.setRepository(response.data._rawValue)
+    })
+}
+
+getRandomRepo()
 
 </script>

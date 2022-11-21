@@ -10,13 +10,17 @@ import { getRepositoryByLang } from '~~/scripts/apiController';
 defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
+const API_URL = 'https://api.github.com/'
 
 const clickedProgrammingLangBtn = (lang: string) => {
-    const repo_lists = getRepositoryByLang(lang)
-    console.log(repo_lists)
-    repositoryStore.setRepository(repo_lists)
-    navigateTo({path: '/search'})
-    console.log(state.value.repo_data)
+    // const repo_lists = getRepositoryByLang(lang).items
+    useFetch(API_URL + 'search/repositories?q=language:'+lang)
+    .then((response) => {
+
+        repositoryStore.setRepository(response.data._rawValue.items)
+        navigateTo({path: '/search'})
+    })
+
 }
 
 const generateImgPath = (fileName: string): string => {
