@@ -5,8 +5,8 @@ type RepositoryState = {
 };
 
 export const useRepositoryStore = () => {
-const state = useState<RepositoryState>("counter_state", () => ({
-    repo_data: 0,
+const state = useState<RepositoryState>("repository_state", () => ({
+    repo_data: {},
 }));
 return {
     state: readonly(state),

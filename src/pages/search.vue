@@ -1,4 +1,8 @@
-<template></template>
+<template>
+    <div class="grid grid-cols-3">
+        <Repository_component v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
+    </div>
+</template>
 
 <script setup lang="ts">
 const repositoryStore = useRepositoryStore()

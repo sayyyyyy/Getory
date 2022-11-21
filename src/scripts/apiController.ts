@@ -19,9 +19,8 @@ type RepoData = {
 
 // 戻り値の型指定をする
 export const getRepositoryByLang = (lang: string) => {
-    console.log(API_URL + 'search/repositories?q=language:'+lang)
     const { data: response} = useFetch(API_URL + 'search/repositories?q=language:'+lang)
-    return response['_rawValue']
+    return response['_rawValue']['items']
 }
 
 export const getRepositoryByRandom = () => {

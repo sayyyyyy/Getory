@@ -9,17 +9,18 @@
 import { getRepositoryByLang } from '~~/scripts/apiController';
 defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
+const { state } = repositoryStore
 
 const clickedProgrammingLangBtn = (lang: string) => {
     const repo_lists = getRepositoryByLang(lang)
     console.log(repo_lists)
     repositoryStore.setRepository(repo_lists)
     navigateTo({path: '/search'})
+    console.log(state.value.repo_data)
 }
 
 const generateImgPath = (fileName: string): string => {
     const new_url = new URL(`../assets/img/${fileName}`, import.meta.url).href
-    console.log(new_url)
     return new_url
 }
 
