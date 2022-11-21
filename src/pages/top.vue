@@ -8,15 +8,18 @@
 </template>
 
 <script setup lang="ts">
-    import Repository_component from '~~/components/repository_component.vue';
+import Repository_component from '~~/components/repository_component.vue';
 import { getRepositoryByRandom } from '../scripts/apiController'
 
-    const programming_languages = [
-        {lang: 'HTML', img: 'HTML.png'},
-        {lang: 'TypeScript', img: 'TypeScript.png'}
-    ]
-    const childRef = ref()
+const programming_languages = [
+    {lang: 'HTML', img: 'HTML.png'},
+    {lang: 'TypeScript', img: 'TypeScript.png'}
+]
+const childRef = ref()
 
-    const repositories_data = getRepositoryByRandom()
+const repositoryStore = useRepositoryStore()
+const { state } = repositoryStore
+
+const repositories_data = getRepositoryByRandom()
 
 </script>

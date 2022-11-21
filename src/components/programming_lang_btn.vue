@@ -8,10 +8,13 @@
 <script setup lang="ts">
 import { getRepositoryByLang } from '~~/scripts/apiController';
 const props_data = defineProps(['lang_data'])
+const repositoryStore = useRepositoryStore()
+const { state } = repositoryStore
 
 const clickedProgrammingLangBtn = (lang: string) => {
     const repo_lists = getRepositoryByLang(lang)
     console.log(repo_lists)
+    repositoryStore.setRepository(repo_lists)
     navigateTo({path: '/search'})
 }
 
