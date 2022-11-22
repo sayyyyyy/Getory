@@ -1,14 +1,16 @@
 <template>
     <div>
-        <div class="flex bg-neutral-800 border-1 border-{#05FF00} text-sm">
+        <div class="flex bg-neutral-800 border border-green-500 rounded-r-md text-sm w-4/5 mb-4">
             <p class="text-white">{{ $t('searched_by_lang') }}</p>
             <input type="text" autocomplete="off">
         </div>
-        <div class="flex bg-scroll text-xs">
+        <div class="inline-flex overflow-x-scroll text-xs relative mb-4">
             <ProgrammingLangBtn ref="childRef" v-for="programming_language in programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
         </div>
-        
-        <div class="grid grid-cols-3">
+        <div class="flex bg-neutral-800 border border-green-500 rounded-r-md text-sm w-1/2 text-center mb-4">
+            <p class="text-white">{{ $t('latest_repo') }}</p>
+        </div>
+        <div class="flex flex-col">
             <Repository_component ref="childRef" v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
         </div>
         
@@ -35,6 +37,7 @@ const programming_languages = [
     {lang: 'Vue',img: 'Vue.png', search_name: 'vue'},
     {lang: 'Swift',img: 'Swift.svg', search_name: 'swift'},
 ]
+
 const childRef = ref()
 
 const repositoryStore = useRepositoryStore()

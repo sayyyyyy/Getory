@@ -1,12 +1,12 @@
 <template>
-    <div class="repository-components bg-neutral-800 rounded-2xl drop-shadow-md w-20 h-20 text-white" @click="transitionGitHub(repository_data.html_url)">
+    <div class="repository-components bg-neutral-800 rounded-2xl drop-shadow-md  text-white m-1" @click="transitionGitHub(repository_data.html_url)">
         <div class="repository-container-left">
             <p>{{ repository_data.name}}</p>
             <p>{{ repository_data.owner.login}}</p>
         </div>
-        <div class="repository-container-right">
+        <!-- <div class="repository-container-right">
 
-        </div>
+        </div> -->
     </div>
 </template>
 

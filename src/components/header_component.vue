@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div class="flex mb-8">
         <img class="w-7 h-7" src="/favicon.png">
         <button class="bg-neutral-800 text-white text-xs">{{ $t('random_btn')}}</button>
         <!-- TODO デザインモード切り替えを追加 -->
