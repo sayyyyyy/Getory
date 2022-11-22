@@ -42,7 +42,7 @@ const API_URL = 'https://api.github.com/'
 const getRandomRepo = () => {
     useFetch(API_URL + 'repositories')
     .then( (response) => {
-        repositoryStore.setRepository(response.data._rawValue)
+        repositoryStore.setRepository('random_search', response.data._rawValue)
     })
 }
 

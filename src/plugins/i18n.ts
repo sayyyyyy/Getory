@@ -11,14 +11,18 @@ export default defineNuxtPlugin(({ vueApp }) => {
         language: 'languages',
         en: 'english',
         ja: 'japanese',
-        random: 'Random'
+        random: 'Random',
+        random_search: '',
+        lang_search: 'Search results by {lang}'
       },
       ja: {
         hello: 'こんにちは',
         language: '言語',
         en: '英語',
         ja: '日本語',
-        random: 'ランダム'
+        random: 'ランダム',
+        random_search: '',
+        lang_search: '{lang}の検索結果です'
       }
     }
   })

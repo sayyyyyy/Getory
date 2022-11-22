@@ -6,18 +6,17 @@
 </template>
 
 <script setup lang="ts">
-import { getRepositoryByLang } from '~~/scripts/apiController';
+
 defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
 const API_URL = 'https://api.github.com/'
 
 const clickedProgrammingLangBtn = (lang: string) => {
-    // const repo_lists = getRepositoryByLang(lang).items
     useFetch(API_URL + 'search/repositories?q=language:'+lang)
     .then((response) => {
 
-        repositoryStore.setRepository(response.data._rawValue.items)
+        repositoryStore.setRepository('lang_search', response.data._rawValue.items)
         navigateTo({path: '/search'})
     })
 
