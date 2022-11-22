@@ -1,5 +1,5 @@
 <template>
-    <div class="repository-components border-2 border-black w-40 h-40" @click="transitionGitHub(repository_data.html_url)">
+    <div class="repository-components bg-neutral-800 rounded-2xl drop-shadow-md w-20 h-20" @click="transitionGitHub(repository_data.html_url)">
         <div class="repository-container-left">
             <p>{{ repository_data.name}}</p>
             <p>{{ repository_data.owner.login}}</p>

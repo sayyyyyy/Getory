@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="bg-neutral-700">
     <HeaderComponent></HeaderComponent>
-    <h1>{{ $t('hello', { name: 'vue-i18n' }) }}</h1>
     <NuxtPage />
   </div>
 </template>

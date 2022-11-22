@@ -1,10 +1,13 @@
 <template>
     <div>
-        <div class="grid grid-cols-3">
+        <div class="flex">
+            <p class="text-white">言語から探す</p>
+            <input type="text" autocomplete="off">
+        </div>
+        <div class="flex bg-scroll">
             <ProgrammingLangBtn ref="childRef" v-for="programming_language in programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
         </div>
         
-        <button>{{ $t('random') }}</button>
         <div class="grid grid-cols-3">
             <Repository_component ref="childRef" v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
         </div>
