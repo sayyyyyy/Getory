@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="flex bg-neutral-800 border-1 border-{#05FF00}">
+        <div class="flex bg-neutral-800 border-1 border-{#05FF00} text-sm">
             <p class="text-white">{{ $t('searched_by_lang') }}</p>
             <input type="text" autocomplete="off">
         </div>
-        <div class="flex bg-scroll">
+        <div class="flex bg-scroll text-xs">
             <ProgrammingLangBtn ref="childRef" v-for="programming_language in programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
         </div>
         
