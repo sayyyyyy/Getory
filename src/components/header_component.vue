@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <img class="w-7 h-7" src="/favicon.png">
-        <button class="bg-neutral-800">{{ $t('random_btn')}}</button>
+        <button class="bg-neutral-800 text-white">{{ $t('random_btn')}}</button>
         <!-- TODO デザインモード切り替えを追加 -->
         <form>
             <select id="locale-select" v-model="$i18n.locale">

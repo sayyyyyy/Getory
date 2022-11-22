@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="flex">
-            <p class="text-white">言語から探す</p>
+        <div class="flex bg-neutral-800 border-1 border-{#05FF00}">
+            <p class="text-white">{{ $t('searched_by_lang') }}</p>
             <input type="text" autocomplete="off">
         </div>
         <div class="flex bg-scroll">

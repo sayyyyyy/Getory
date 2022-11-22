@@ -13,7 +13,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
         ja: 'japanese',
         random_btn: 'Random Search',
         random_search: '',
-        lang_search: 'Search results by {lang}'
+        lang_search: 'Search results by {lang}',
+        searched_by_lang: 'Search by Language'
       },
       ja: {
         hello: 'こんにちは',
@@ -22,7 +23,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
         ja: '日本語',
         random_btn: 'ランダム検索',
         random_search: '',
-        lang_search: '{lang}の検索結果です'
+        lang_search: '{lang}の検索結果です',
+        searched_by_lang: '言語から探す'
       }
     }
   })
