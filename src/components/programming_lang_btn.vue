@@ -1,7 +1,7 @@
 <template>
-    <div class="programming-lang-btn-components m-1 bg-neutral-800 rounded-2xl drop-shadow-md text-white flex flex-col justify-center items-center w-20 h-20 shrink-0" v-on:click="clickedProgrammingLangBtn(lang_data.search_name)">
-        <img class="w-8 h-8" :src="generateImgPath(lang_data.img)">
-        <p class="text-center">{{lang_data.lang}}</p>
+    <div class="programming-lang-btn-components m-2 bg-neutral-800 rounded-2xl drop-shadow-md text-white flex flex-col justify-center items-center w-32 h-28 shrink-0 text-base" v-on:click="clickedProgrammingLangBtn(lang_data.search_name)">
+        <img class="w-10 h-10" :src="generateImgPath(lang_data.img)">
+        <p class="text-center mt-3">{{lang_data.lang}}</p>
     </div>
 </template>
 
