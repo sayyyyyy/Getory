@@ -1,5 +1,5 @@
 <template>
-    <div class="programming-lang-btn-components m-1 bg-neutral-800 rounded-2xl drop-shadow-md text-white flex flex-col justify-center items-center w-20 h-20" v-on:click="clickedProgrammingLangBtn(lang_data.search_name)">
+    <div class="programming-lang-btn-components m-1 bg-neutral-800 rounded-2xl drop-shadow-md text-white flex flex-col justify-center items-center w-20 h-20 shrink-0" v-on:click="clickedProgrammingLangBtn(lang_data.search_name)">
         <img class="w-8 h-8" :src="generateImgPath(lang_data.img)">
         <p class="text-center">{{lang_data.lang}}</p>
     </div>
