@@ -14,6 +14,4 @@ const { state } = repositoryStore
 // リロードされた時
 if (!state.value.search_way)
     navigateTo({path: '/'})
-
-
 </script>

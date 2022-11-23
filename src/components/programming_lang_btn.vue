@@ -34,6 +34,7 @@ const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
                         languages(first: 1) {
                             nodes {
                                 name
+                                color
                             }
                         }
                     }
@@ -52,15 +53,9 @@ const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
             query: query
         }
     }).then( (res) => {
-        repositoryStore.setRepository('lang_search', display_lang, res.data.value.data.search.edges)
         navigateTo({path: '/search'})
+        repositoryStore.setRepository('lang_search', display_lang, res.data.value.data.search.edges)
     })
     .catch((e) => console.log(e))   
 }
-
-const generateImgPath = (fileName: string): string => {
-    const new_url = new URL(`/img/${fileName}`, import.meta.url).href
-    return new_url
-}
-
 </script>

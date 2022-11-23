@@ -84,7 +84,8 @@ const getRandomRepo = async () => {
                         updatedAt
                         languages(first: 1) {
                             nodes {
-                            name
+                                name
+                                color
                             }
                         }
                     }
