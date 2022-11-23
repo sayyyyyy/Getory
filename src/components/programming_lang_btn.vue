@@ -17,7 +17,7 @@ const config = useRuntimeConfig()
 const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
     const query = `
     query { 
-        search(query: "language: ${lang} sort:updated", type: REPOSITORY, first: 10) {
+        search(query: "language: ${lang} sort:updated", type: REPOSITORY, first: 30) {
             edges {
                 node {
                     ... on Repository {
