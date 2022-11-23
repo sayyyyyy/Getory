@@ -6,3 +6,8 @@ node_modules
 .env
 dist
 img
+.netlify
+dist
+.vscode
+.DS_Store
+.output
