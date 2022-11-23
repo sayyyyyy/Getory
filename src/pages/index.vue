@@ -2,11 +2,11 @@
     <div class="w-screen">
         <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-80 min-w-fit mb-6 items-center justify-center h-10 md:mb-10 lg:h-16 lg:w-1/3 lg:text-xl">
             <p class="text-white">{{ $t('searched_by_lang') }}</p>
-            <input type="text" autocomplete="off" class="bg-inherit text-white border-b-2 border-gray-500/100 ml-4 h-5 w-28 lg:w-36">
+            <input v-model="programming_lang" type="text" autocomplete="off" class="bg-inherit text-white border-b-2 border-gray-500/100 ml-4 h-5 w-28 lg:w-36">
             <img src="/search_icon.png" class="w-5 h-5 ml-2 mr-2">
         </div>
         <div class="flex overflow-x-scroll relative mb-10 w-screen md:mb-16">
-            <ProgrammingLangBtn ref="childRef" v-for="programming_language in programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
+            <ProgrammingLangBtn ref="childRef" v-for="programming_language in display_programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
         </div>
         <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-48 mb-6 items-center justify-center h-10 md:mb-10 lg:h-16 lg:w-64 lg:text-xl">
             <p class="text-white">{{ $t('latest_repo') }}</p>
@@ -38,6 +38,21 @@ const programming_languages = [
     {lang: 'Vue',img: 'Vue.png', search_name: 'vue'},
     {lang: 'Swift',img: 'Swift.svg', search_name: 'swift'},
 ]
+
+let display_programming_languages = ref(programming_languages)
+
+const programming_lang = ref('')
+watch(programming_lang, () => {
+    display_programming_languages.value = []
+
+    programming_languages.forEach(element => {
+        if (element.lang.includes(programming_lang.value.toUpperCase())) {
+            display_programming_languages.value.push(element)
+        }
+    });
+
+})
+
 
 const childRef = ref()
 
