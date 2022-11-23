@@ -11,16 +11,15 @@
         <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-48 mb-6 items-center justify-center h-10 md:mb-10 lg:h-16 lg:w-64 lg:text-xl">
             <p class="text-white">{{ $t('latest_repo') }}</p>
         </div>
-        <!-- <div class="flex flex-col">
+        <div class="flex flex-col">
             <Repository_component ref="childRef" v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
-        </div> -->
+        </div>
         
     </div>
 </template>
 
 <script setup lang="ts">
 import Repository_component from '~~/components/repository_component.vue'
-import { graphql } from '@octokit/graphql'
 
 const programming_languages = [
     {lang: 'HTML', img: 'HTML.png', search_name: 'html', refine_name: 'html'},
@@ -66,21 +65,50 @@ watch(programming_lang, () => {
     });
 })
 
-
-// const graphqlWithAuth = graphql.defaults({
-//   headers: {
-//     authorization: `token ${github_token}`,
-//   },
-// });
-
 const getRandomRepo = async () => {
-    // useFetch(API_URL + 'repositories')
-    // .then( (response) => {
-    //     repositoryStore.setRepository('random_search', response.data._rawValue)
-    // })
+    const query = `
+    query {
+        search(query: "sort=update", type: REPOSITORY, first: 20) {
+            edges {
+                node {
+                    ... on Repository {
+                        name
+                        description
+                        url
+                        owner {
+                            login
+                            avatarUrl
+                        }
+                        stargazerCount
+                        forkCount
+                        updatedAt
+                        languages(first: 1) {
+                            nodes {
+                            name
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    `
+
+    useFetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${config.public.GITHUB_TOKEN}`,
+        },
+        body: {
+            query: query
+        }
+    }).then( (res) => {
+        repositoryStore.setRepository('random_search', '', res.data.value.data.search.edges)
+    })
+    .catch((e) => console.log(e))   
 
 }
 
-// getRandomRepo()
+getRandomRepo()
 
 </script>

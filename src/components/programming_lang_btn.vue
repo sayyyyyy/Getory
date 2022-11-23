@@ -12,9 +12,12 @@ const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
 const config = useRuntimeConfig()
 
-const query = `
+
+
+const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
+    const query = `
     query { 
-        search(query: "language: python sort:updated", type: REPOSITORY, first: 10) {
+        search(query: "language: ${lang} sort:updated", type: REPOSITORY, first: 10) {
             edges {
                 node {
                     ... on Repository {
@@ -40,7 +43,6 @@ const query = `
     }
     ` 
 
-const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
     useFetch('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
@@ -50,7 +52,6 @@ const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
             query: query
         }
     }).then( (res) => {
-        console.log(res.data.value.data.search.edges[0].node.languages.nodes[0])
         repositoryStore.setRepository('lang_search', display_lang, res.data.value.data.search.edges)
         navigateTo({path: '/search'})
     })
