@@ -11,6 +11,9 @@
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
 
-//stateにrepositoryデータが入っている
+// リロードされた時
+if (!state.value.search_way)
+    navigateTo({path: '/'})
+
 
 </script>

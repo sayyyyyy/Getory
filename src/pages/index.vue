@@ -5,7 +5,7 @@
             <input type="text" autocomplete="off" class="bg-inherit text-white border-b-2 border-gray-500/100 ml-4 h-5 w-28">
             <img src="/search_icon.png" class="w-5 h-5 ml-2 mr-2">
         </div>
-        <div class="flex overflow-x-scroll text-xs relative mb-10 w-screen">
+        <div class="flex overflow-x-scroll relative mb-10 w-screen">
             <ProgrammingLangBtn ref="childRef" v-for="programming_language in programming_languages" :lang_data="programming_language"></ProgrammingLangBtn>
         </div>
         <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-48 mb-6 items-center h-10">
