@@ -1,6 +1,6 @@
 <template>
     <div class="w-screen">
-        <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-80 min-w-fit mb-6 items-center justify-center h-10 lg:h-16 lg:w-96 lg:text-xl lg-pl-6">
+        <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-80 min-w-fit mb-6 items-center justify-center h-10 lg:h-16 lg:w-1/3 lg:text-xl">
             <p class="text-white">{{ $t('searched_by_lang') }}</p>
             <input type="text" autocomplete="off" class="bg-inherit text-white border-b-2 border-gray-500/100 ml-4 h-5 w-28 lg:w-36">
             <img src="/search_icon.png" class="w-5 h-5 ml-2 mr-2">
