@@ -52,8 +52,8 @@ const clickedProgrammingLangBtn = (lang: string) => {
             query: query
         }
     }).then( (res) => {
-        repositoryStore.setRepository('lang_search', res.data.value.data.search)
-        console.log(res.data.value.data.search)
+        repositoryStore.setRepository('lang_search', res.data.value.data.search.edges)
+        console.log(res.data.value.data.search.edges)
         navigateTo({path: '/search'})
     })
     .catch((e) => console.log(e))   
