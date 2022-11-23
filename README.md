@@ -1,5 +1,4 @@
-{: align="center"}
-<img src="***.jpg" width="100" height="100">
+<div align="center"><img src="src/public/favicon.png" width="100" height="100"></div>
 
 # Getory
 https://getory.netlify.app/
