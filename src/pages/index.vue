@@ -22,21 +22,21 @@
 import Repository_component from '~~/components/repository_component.vue';
 
 const programming_languages = [
-    {lang: 'HTML', img: 'HTML.png', search_name: 'html'},
-    {lang: 'TypeScript', img: 'TypeScript.png' , search_name: 'ts'},
-    {lang: 'C++',img: 'C++.png', search_name: 'c%2B%2B'},
-    {lang: 'CSS',img: 'CSS.png', search_name: 'css'},
-    {lang: 'D',img: 'D.png', search_name: 'd'},
-    {lang: 'Dart',img: 'Dart.png', search_name: 'dart'},
-    {lang: 'Go',img: 'Go.png', search_name: 'go'},
-    {lang: 'JavaScript',img: 'JavaScript.png', search_name: 'js'},
-    {lang: 'Kotlin',img: 'Kotlin.png', search_name: 'kotlin'},
-    {lang: 'PHP',img: 'PHP.png', search_name: 'php'},
-    {lang: 'Python',img: 'Python.png', search_name: 'python'},
-    {lang: 'Ruby',img: 'Ruby.png', search_name: 'ruby'},
-    {lang: 'Rust',img: 'Rust.png', search_name: 'rust'},
-    {lang: 'Vue',img: 'Vue.png', search_name: 'vue'},
-    {lang: 'Swift',img: 'Swift.svg', search_name: 'swift'},
+    {lang: 'HTML', img: 'HTML.png', search_name: 'html', refine_name: 'html'},
+    {lang: 'TypeScript', img: 'TypeScript.png' , search_name: 'ts', refine_name: 'typescript'},
+    {lang: 'C++',img: 'C++.png', search_name: 'c%2B%2B', refine_name: 'c++'},
+    {lang: 'CSS',img: 'CSS.png', search_name: 'css', refine_name: 'css'},
+    {lang: 'D',img: 'D.png', search_name: 'd', refine_name: 'd'},
+    {lang: 'Dart',img: 'Dart.png', search_name: 'dart', refine_name: 'dart'},
+    {lang: 'Go',img: 'Go.png', search_name: 'go', refine_name: 'go'},
+    {lang: 'JavaScript',img: 'JavaScript.png', search_name: 'js', refine_name: 'javascript'},
+    {lang: 'Kotlin',img: 'Kotlin.png', search_name: 'kotlin', refine_name: 'kotlin'},
+    {lang: 'PHP',img: 'PHP.png', search_name: 'php', refine_name: 'php'},
+    {lang: 'Python',img: 'Python.png', search_name: 'python', refine_name: 'python'},
+    {lang: 'Ruby',img: 'Ruby.png', search_name: 'ruby', refine_name: 'ruby'},
+    {lang: 'Rust',img: 'Rust.png', search_name: 'rust', refine_name: 'rust'},
+    {lang: 'Vue',img: 'Vue.png', search_name: 'vue', refine_name: 'vue'},
+    {lang: 'Swift',img: 'Swift.svg', search_name: 'swift', refine_name: 'swift'},
 ]
 
 let display_programming_languages = ref(programming_languages)
@@ -46,11 +46,16 @@ watch(programming_lang, () => {
     display_programming_languages.value = []
 
     programming_languages.forEach(element => {
-        if (element.lang.includes(programming_lang.value.toUpperCase())) {
-            display_programming_languages.value.push(element)
+        
+        try {
+            if (element.refine_name.includes(programming_lang.value.toLowerCase())) {
+                display_programming_languages.value.push(element)
+            }
+        // 認識できない文字を含んでいたら
+        } catch(e) {
+
         }
     });
-
 })
 
 
