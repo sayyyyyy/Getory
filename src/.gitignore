@@ -3,6 +3,11 @@ node_modules
 .nuxt
 .nitro
 .cache
-.output
 .env
 dist
+img
+.netlify
+dist
+.vscode
+.DS_Store
+.output

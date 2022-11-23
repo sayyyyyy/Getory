@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <!-- <NuxtWelcome /> -->
-    <h1>{{ $t('hello', { name: 'vue-i18n' }) }}</h1>
+  <div class="bg-neutral-700">
+    <HeaderComponent></HeaderComponent>
+    <NuxtPage />
   </div>
 </template>
