@@ -10,16 +10,53 @@
 defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
-const API_URL = 'https://api.github.com/'
+const config = useRuntimeConfig()
+
+const query = `
+    query { 
+        search(query: "language: python sort:updated", type: REPOSITORY, first: 10) {
+            edges {
+                node {
+                    ... on Repository {
+                    name
+                    description
+                    url
+                    owner {
+                        login
+                        avatarUrl
+                    }
+                    stargazerCount
+                    forkCount
+                    updatedAt
+                    }
+                }
+            }
+        }
+    }
+    ` 
 
 const clickedProgrammingLangBtn = (lang: string) => {
-    useFetch(API_URL + 'search/repositories?q=language:'+lang)
-    .then((response) => {
+    // useFetch(API_URL + 'search/repositories?q=language:'+lang)
+    // .then((response) => {
 
-        repositoryStore.setRepository('lang_search', response.data._rawValue.items)
+    //     repositoryStore.setRepository('lang_search', response.data._rawValue.items)
+    //     navigateTo({path: '/search'})
+    // })
+
+    useFetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${config.public.GITHUB_TOKEN}`,
+        },
+        body: {
+            query: query
+        }
+    }).then( (res) => {
+        repositoryStore.setRepository('lang_search', res.data.value.data.search)
+        console.log(res.data.value.data.search)
         navigateTo({path: '/search'})
     })
-
+    .catch((e) => console.log(e))   
 }
 
 const generateImgPath = (fileName: string): string => {
