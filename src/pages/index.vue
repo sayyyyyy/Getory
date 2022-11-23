@@ -65,10 +65,10 @@ watch(programming_lang, () => {
     });
 })
 
-const getRandomRepo = async () => {
+const getNewRepo = async () => {
     const query = `
     query {
-        search(query: "sort=update", type: REPOSITORY, first: 20) {
+        search(query: "sort=updated", type: REPOSITORY, last: 20) {
             edges {
                 node {
                     ... on Repository {
@@ -110,6 +110,6 @@ const getRandomRepo = async () => {
 
 }
 
-getRandomRepo()
+getNewRepo()
 
 </script>

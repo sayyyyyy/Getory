@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-neutral-700">
+  <div class="bg-neutral-700 bg-fixed">
     <HeaderComponent></HeaderComponent>
     <NuxtPage />
   </div>
