@@ -1,6 +1,3 @@
-{: align="center"}
-<img src="***.jpg" width="100" height="100">
-
 # Getory
 https://getory.netlify.app/
 
@@ -8,7 +5,6 @@ https://getory.netlify.app/
 言語ごとのリポジトリやランダムなリポジトリを簡単に発見できるサービス
 
 ## 特徴
-- 多言語対応
 
 ## 使用技術
 - Vue3(Nuxt3)
