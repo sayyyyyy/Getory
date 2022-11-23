@@ -11,7 +11,7 @@
         <div class="flex bg-neutral-800 border border-green-500 border-l-0 rounded-r-xl text-lg w-48 mb-6 items-center justify-center h-10 md:mb-10 lg:h-16 lg:w-64 lg:text-xl">
             <p class="text-white">{{ $t('latest_repo') }}</p>
         </div>
-        <div class="flex flex-col">
+        <div class="md:grid md:grid-cols-2">
             <Repository_component ref="childRef" v-for="repository_data in state.repo_data" :repository_data="repository_data"></Repository_component>
         </div>
         
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import Repository_component from '~~/components/repository_component.vue';
+import Repository_component from '~~/components/repository_component.vue'
 
 const programming_languages = [
     {lang: 'HTML', img: 'HTML.png', search_name: 'html', refine_name: 'html'},
@@ -38,15 +38,22 @@ const programming_languages = [
     {lang: 'Vue',img: 'Vue.png', search_name: 'vue', refine_name: 'vue'},
     {lang: 'Swift',img: 'Swift.svg', search_name: 'swift', refine_name: 'swift'},
 ]
-
 let display_programming_languages = ref(programming_languages)
-
 const programming_lang = ref('')
+const childRef = ref()
+
+const repositoryStore = useRepositoryStore()
+const { state } = repositoryStore
+
+const API_URL = 'https://api.github.com/'
+const config = useRuntimeConfig()
+
+const github_token = config.public.GITHUB_TOKEN
+// 言語検索の実装
 watch(programming_lang, () => {
     display_programming_languages.value = []
 
     programming_languages.forEach(element => {
-        
         try {
             if (element.refine_name.includes(programming_lang.value.toLowerCase())) {
                 display_programming_languages.value.push(element)
@@ -58,19 +65,49 @@ watch(programming_lang, () => {
     });
 })
 
+const getRandomRepo = async () => {
+    const query = `
+    query {
+        search(query: "sort=update", type: REPOSITORY, first: 20) {
+            edges {
+                node {
+                    ... on Repository {
+                        name
+                        description
+                        url
+                        owner {
+                            login
+                            avatarUrl
+                        }
+                        stargazerCount
+                        forkCount
+                        updatedAt
+                        languages(first: 1) {
+                            nodes {
+                                name
+                                color
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    `
 
-const childRef = ref()
-
-const repositoryStore = useRepositoryStore()
-const { state } = repositoryStore
-const API_URL = 'https://api.github.com/'
-
-
-const getRandomRepo = () => {
-    useFetch(API_URL + 'repositories')
-    .then( (response) => {
-        repositoryStore.setRepository('random_search', response.data._rawValue)
+    useFetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${config.public.GITHUB_TOKEN}`,
+        },
+        body: {
+            query: query
+        }
+    }).then( (res) => {
+        repositoryStore.setRepository('random_search', '', res.data.value.data.search.edges)
     })
+    .catch((e) => console.log(e))   
+
 }
 
 getRandomRepo()
