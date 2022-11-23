@@ -1,5 +1,5 @@
 <template>
-    <div class="repository-components bg-neutral-800 rounded-md drop-shadow-md text-white m-2" @click="transitionGitHub(repository_data.html_url)">
+    <div class="repository-components cursor-pointer bg-neutral-800 rounded-md drop-shadow-md text-white m-2" @click="transitionGitHub(repository_data.html_url)">
         <div class="repository-container-top flex ml-2">
             <div class="repository-container-left">
                 <p class="text-lg">{{ repository_data.name}}</p>
