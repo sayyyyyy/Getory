@@ -27,10 +27,11 @@ const transitionTop = () => {
 }
 
 const getRandomRepo = () => {
-    const random_num = Math.floor( Math.random() * (max + 1 - 0) ) + 0 ;
+    const SOURCE = "abcdefghijklmnopqrstuvwxyz0123456789"
+    const search_word = SOURCE[Math.floor(Math.random() * SOURCE.length)];
     const query = `
     query { 
-        search(query: "since: ${random_num} is:public", type: REPOSITORY, first: 30) {
+        search(query: "${search_word} in:readme sort:updated", type: REPOSITORY, first: 30) {
             edges {
                 node {
                     ... on Repository {
@@ -66,7 +67,7 @@ const getRandomRepo = () => {
             query: query
         }
     }).then( (res) => {
-        console.log(random_num)
+        console.log(search_word)
         console.log(res.data.value.data.search.edges.length)
         if (res.data.value.data.search.edges.length == 0)
             getRandomRepo()
