@@ -7,11 +7,11 @@
             </div>
             <div class="repository-container-right ml-auto flex flex-col mt-3 mr-2">
                 <div class="flex items-center text-sm mb-3 lg:text-base">
-                    <img src="star.png" class="w-6 h-6 mr-2">
+                    <img src="/star.png" class="w-6 h-6 mr-2">
                     <p>{{ repository_data.node.stargazerCount }}</p>
                 </div>
                 <div class="flex items-center text-sm lg:text-base">
-                    <img src="fork.png" class="w-5 h-6 ml-1 mr-2">
+                    <img src="/fork.png" class="w-5 h-6 ml-1 mr-2">
                     <p>{{ repository_data.node.forkCount}}</p>
                 </div>
                 
@@ -26,7 +26,7 @@
                 <p>{{ checkLang(repository_data.node.languages.nodes[0])}}</p>
             </div>
             <div class="flex items-center mr-3 ml-auto lg:text-sm">
-                <img src="calender.png" class="w-4 h-4">
+                <img src="/calender.png" class="w-4 h-4">
                 <p class="text-xs ml-2">{{repository_data.node.updatedAt.slice(0, 10)}}</p>
             </div>
         </div>
