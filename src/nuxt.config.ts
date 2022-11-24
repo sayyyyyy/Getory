@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     modules: ['@nuxtjs/tailwindcss'],
     app: {
         head: {
+            title: 'Getroy',
             link: [
                 { rel: "icon", type: "image/png", href: "/favicon.png" },
               ],
@@ -10,7 +11,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            GITHUB_TOKEN: ''
+            GITHUB_TOKEN: process.env.GITHUB_TOKEN
         }
     },
     
