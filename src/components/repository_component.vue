@@ -60,8 +60,8 @@ const changeDescription = (description: string) => {
 const changeUsername = (name: string) => {
     try {
         if (name) {
-            if (name.length > 25)
-                return name.slice(0, 25) + '...'
+            if (name.length > 20)
+                return name.slice(0, 20) + '...'
             else
                 return name
         }
