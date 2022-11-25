@@ -14,5 +14,8 @@
     "netlify-cli": "^12.2.6",
     "nuxt": "3.0.0",
     "vue-i18n": "^9.2.2"
+  },
+  "dependencies": {
+    "@nuxtjs/color-mode": "^3.1.8"
   }
 }

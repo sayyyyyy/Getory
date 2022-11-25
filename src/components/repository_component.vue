@@ -1,5 +1,5 @@
 <template>
-    <div class="repository-components flex flex-col cursor-pointer bg-neutral-800 rounded-md drop-shadow-md text-white m-3 mb-6 p-2 md:m-4" @click="transitionGitHub(repository_data.node.url)">
+    <div class="repository-components light:border light:border-neutral-200 flex flex-col cursor-pointer bg-white dark:bg-neutral-800 rounded-md drop-shadow-md text:black dark:text-white m-3 mb-6 p-2 md:m-4" @click="transitionGitHub(repository_data.node.url)">
         <div class="repository-container-top flex ml-2 mb-4">
             <div class="repository-container-left w-3/4">
                 <p class="text-xl mb-1 lg:text-2xl md:mb-2 lg:mb-3">{{ repository_data.node.name }}</p>
@@ -7,11 +7,13 @@
             </div>
             <div class="repository-container-right ml-auto flex flex-col mt-3 mr-2">
                 <div class="flex items-center text-sm mb-3 lg:text-base">
-                    <img src="/star.png" class="w-6 h-6 mr-2">
+                    <img v-if="$colorMode.preference == 'dark'" src="/star.png" class="w-6 h-6 mr-2">
+                    <img v-else src="/star_black.png" class="w-6 h-6 mr-2">
                     <p>{{ repository_data.node.stargazerCount }}</p>
                 </div>
                 <div class="flex items-center text-sm lg:text-base">
-                    <img src="/fork.png" class="w-5 h-6 ml-1 mr-2">
+                    <img v-if="$colorMode.preference == 'dark'" src="/fork.png" class="w-5 h-6 ml-1 mr-2">
+                    <img v-else src="/fork_black.png" class="w-5 h-6 ml-1 mr-2">
                     <p>{{ repository_data.node.forkCount}}</p>
                 </div>
                 
