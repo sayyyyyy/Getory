@@ -4,6 +4,7 @@
         <div class="flex ml-auto text-white items-center">
             <button @click="getRandomRepo" class="bg-neutral-800 rounded-2xl drop-shadow-xl mr-2 p-2 h-4/5 text-sm lg:text-base lg:mr-6">{{ $t('random_btn')}}</button>
             <!-- TODO デザインモード切り替えを追加 -->
+            <button @click="setColorTheme($colorMode.preference == 'dark' ?'light' : 'dark')">モード</button>
             <form>
                 <select id="locale-select" class="cursor-pointer h-4/5 bg-inherit text-base lg:text-lg lg:mr-4" v-model="$i18n.locale">
                     <option value="en">{{ $t('en') }}</option>
@@ -21,6 +22,17 @@ const { state } = repositoryStore
 const config = useRuntimeConfig()
 
 const max = 200000
+
+// definePageMeta({
+//   colorMode: 'light',
+// })
+const colorMode = useColorMode()
+
+type Theme = 'light' | 'dark'
+
+const setColorTheme = (newTheme: Theme) => {
+  useColorMode().preference = newTheme
+}
 
 const transitionTop = () => {
     navigateTo({path: '/'})
@@ -77,5 +89,4 @@ const getRandomRepo = () => {
     })
     .catch((e) => console.log(e))  
 }
-
 </script>
