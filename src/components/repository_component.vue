@@ -7,11 +7,13 @@
             </div>
             <div class="repository-container-right ml-auto flex flex-col mt-3 mr-2">
                 <div class="flex items-center text-sm mb-3 lg:text-base">
-                    <img src="/star.png" class="w-6 h-6 mr-2">
+                    <img v-if="$colorMode.preference == 'dark'" src="/star.png" class="w-6 h-6 mr-2">
+                    <img v-else src="/star_black.png" class="w-6 h-6 mr-2">
                     <p>{{ repository_data.node.stargazerCount }}</p>
                 </div>
                 <div class="flex items-center text-sm lg:text-base">
-                    <img src="/fork.png" class="w-5 h-6 ml-1 mr-2">
+                    <img v-if="$colorMode.preference == 'dark'" src="/fork.png" class="w-5 h-6 ml-1 mr-2">
+                    <img v-else src="/fork_black.png" class="w-5 h-6 ml-1 mr-2">
                     <p>{{ repository_data.node.forkCount}}</p>
                 </div>
                 
