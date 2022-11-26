@@ -68,7 +68,7 @@ watch(programming_lang, () => {
 const getNewRepo = async () => {
     const query = `
     query {
-        search(query: "sort=updated", type: REPOSITORY, last: 20) {
+        search(query: "pushed:>2022-11-25 sort:updated", type: REPOSITORY, first: 20) {
             edges {
                 node {
                     ... on Repository {
@@ -79,9 +79,11 @@ const getNewRepo = async () => {
                             login
                             avatarUrl
                         }
-                        stargazerCount
+                        stargazers {
+                            totalCount
+                        }
                         forkCount
-                        updatedAt
+                        pushedAt
                         languages(first: 1) {
                             nodes {
                                 name

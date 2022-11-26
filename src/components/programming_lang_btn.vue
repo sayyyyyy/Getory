@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-
 defineProps(['lang_data'])
 const repositoryStore = useRepositoryStore()
 const { state } = repositoryStore
@@ -28,9 +27,11 @@ const clickedProgrammingLangBtn = (lang: string, display_lang: string) => {
                             login
                             avatarUrl
                         }
-                        stargazerCount
+                        stargazers {
+                            totalCount
+                        }
                         forkCount
-                        updatedAt     
+                        pushedAt     
                         languages(first: 1) {
                             nodes {
                                 name

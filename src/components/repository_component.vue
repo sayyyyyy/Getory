@@ -9,7 +9,7 @@
                 <div class="flex items-center text-sm mb-3 lg:text-base">
                     <img v-if="$colorMode.preference == 'dark'" src="/star.png" class="w-6 h-6 mr-2">
                     <img v-else src="/star_black.png" class="w-6 h-6 mr-2">
-                    <p>{{ repository_data.node.stargazerCount }}</p>
+                    <p>{{ repository_data.node.stargazers.totalCount }}</p>
                 </div>
                 <div class="flex items-center text-sm lg:text-base">
                     <img v-if="$colorMode.preference == 'dark'" src="/fork.png" class="w-5 h-6 ml-1 mr-2">
@@ -29,7 +29,7 @@
             </div>
             <div class="flex items-center mr-3 ml-auto lg:text-sm">
                 <img src="/calender.png" class="w-4 h-4">
-                <p class="text-xs ml-2">{{repository_data.node.updatedAt.slice(0, 10)}}</p>
+                <p class="text-xs ml-2">{{repository_data.node.pushedAt.slice(0, 10)}}</p>
             </div>
         </div>
 
@@ -50,9 +50,7 @@ const changeDescription = (description: string) => {
                 return description.slice(0, 60) + '...'
             else
                 return description
-
         }
-            
         return ''
     } catch {
         return ''
@@ -67,7 +65,6 @@ const changeUsername = (name: string) => {
             else
                 return name
         }
-            
         return ''
     } catch {
         return ''

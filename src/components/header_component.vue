@@ -42,10 +42,10 @@ const transitionTop = () => {
 
 const getRandomRepo = () => {
     const SOURCE = "abcdefghijklmnopqrstuvwxyz0123456789"
-    const search_word = SOURCE[Math.floor(Math.random() * SOURCE.length)];
+    const search_word = SOURCE[Math.floor(Math.random() * SOURCE.length)] + SOURCE[Math.floor(Math.random() * SOURCE.length)]
     const query = `
     query { 
-        search(query: "${search_word} in:readme sort:updated", type: REPOSITORY, first: 30) {
+        search(query: "${search_word} in:readme sort:author-date", type: REPOSITORY, first: 30) {
             edges {
                 node {
                     ... on Repository {
@@ -56,9 +56,11 @@ const getRandomRepo = () => {
                             login
                             avatarUrl
                         }
-                        stargazerCount
+                        stargazers {
+                            totalCount
+                        }
                         forkCount
-                        updatedAt     
+                        pushedAt     
                         languages(first: 1) {
                             nodes {
                                 name
