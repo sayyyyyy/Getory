@@ -3,22 +3,30 @@
 # Getory
 https://getory.netlify.app/
 
-## 製品概要
-言語ごとのリポジトリやランダムなリポジトリを簡単に発見できるサービス
+## Product Summary
+Easy discovery service for language-specific and random repositories
 
-## 特徴
-- 多言語対応
+## Feature
+- Repository search by programming language
+- Language Refinement
+- Latest repository display
+- Random repository search
+- Language Switching
+- Switching design mode
 
-## 使用技術
+## Usage Technology
 - Vue3(Nuxt3)
 - TypeScript
 - TailwindCSS
 - vue-i18n
 - Docker(docker-compose)
-- GitHubAPI
+- GitHubAPI v4
+- Netlify
 
-## 対応ブラウザ
+## Supported Browsers
 - Google Chrome
 - Safari
 - Firefox
 - Microsoft Edge
+
+日本語版は[こちら](https://github.com/sayyyyyy/Getory/blob/main/README_ja.md)
