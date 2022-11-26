@@ -29,4 +29,4 @@ Easy discovery service for language-specific and random repositories
 - Firefox
 - Microsoft Edge
 
-日本語版はこちら
+日本語版は[こちら](https://github.com/sayyyyyy/Getory/blob/main/README_ja.md)
