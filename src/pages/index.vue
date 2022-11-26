@@ -68,7 +68,7 @@ watch(programming_lang, () => {
 const getNewRepo = async () => {
     const query = `
     query {
-        search(query: "pushed:>2022-11-25 sort:updated", type: REPOSITORY, first: 20) {
+        search(query: "pushed:>2022-11-25 sort:updated", type: REPOSITORY, first: 50) {
             edges {
                 node {
                     ... on Repository {
