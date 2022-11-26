@@ -33,4 +33,4 @@ https://getory.netlify.app/
 - Firefox
 - Microsoft Edge
 
-Click here for the English version
+Click [here](https://github.com/sayyyyyy/Getory/blob/main/README.md) for the English version
