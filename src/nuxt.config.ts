@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
     modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode'],
     colorMode: {
-        classSuffix: ''
+        classSuffix: '',
+        preference: 'light'
     },
     app: {
         head: {
